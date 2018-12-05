@@ -57,7 +57,7 @@ var answers = {
 $(document).ready(function() {
     // 1. Push start button to begin trivia
     $("#start-button").on("click", function() {
-        // 2. Display question with choices and timer of 20 seconds
+    // 2. Display question with choices and timer of 20 seconds
         $("#intro-text").hide();
         $("#spoiler-warning").hide();
         $("#start-button").hide();
@@ -69,7 +69,7 @@ $(document).ready(function() {
         $("#choiceD").text(answers.a1[3])
     })
     // 3. Read player's choice and determine whether right or wrong
-    
+
     // 4. Display "correct" message if guessed right/display "wrong" message with correct answer if guessed wrong
     //      a. display "Time's Up!" with correct answer message if timer gets to 0
     // 5. Change to next question after 5 seconds and reset timer
