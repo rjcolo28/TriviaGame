@@ -27,7 +27,12 @@ var questions = [
         question: "Who is the Number 1 Hero?",
         choices: ["a. All Might", "b. Eraserhead", "c. Best Jeanist", "d. Mt. Lady"],
         answer: "a. All Might"
-    }
+    },
+    // {
+    //     question: "What is the name of the quirk Izuku Midoriya inherits from All Might?",
+    //     choices: ["a. All for One ", "b. One for All", "c. Super Smash", "d. Justice Power"],
+    //     answer: "b. One for All"
+    // }
 ];
 
     // q2: "Who is the Number 1 Hero?",
@@ -63,7 +68,8 @@ var questions = [
     // a14: ["a. ", "b. ", "c. ", "d. "],
     // a15: ["a. ", "b. ", "c. ", "d. "]
 // };
-
+var number = 0
+var timer = 20
 // Functions
 $(document).ready(function() {
     // 1. Push start button to begin trivia
@@ -72,16 +78,33 @@ $(document).ready(function() {
         $(this).hide();
         $("#intro-text").hide();
         $("#spoiler-warning").hide();
-        for (var i = 0; i < questions.length; i++) {
+        var timer = setInterval(function() {}, 1000 * 20);
+        var userGuess;
+        $(".choice").on("click", function() {
+            userGuess = $(this).text();
+            console.log(userGuess);
+        })
+        function display(i) {
             $("#question-header-text").text(questionHeaders[i]);
             $("#question-text").text(questions[i].question);
             $("#choiceA").text(questions[i].choices[0]);
             $("#choiceB").text(questions[i].choices[1]);
             $("#choiceC").text(questions[i].choices[2]);
             $("#choiceD").text(questions[i].choices[3]);
-        }
+            if (userGuess === questions[i].answer) {
+                number++;
+                setTimeout(function() {display(number)}, 1000 * 5);
+            }
+            else if (userGuess != questions[i].answer) {
+                number++;
+                display(number);
+
+            }
+        
+        };
+        display(number);
     });
-})
+});
     // 3. Read player's choice and determine whether right or wrong
 
     // 4. Display "correct" messae if guessed right/display "wrong" message with correct answer if guessed wrong
