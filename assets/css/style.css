@@ -1,0 +1,44 @@
+body {
+    background-image: url(../images/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.content {
+    background-color: #F3DA43;
+}
+
+h1 {
+    font-family:'Righteous', cursive;
+    color: #212F78;
+}
+h2 {
+    font-family: 'Righteous', cursive;
+    color: #212F78;
+}
+h3 {
+    font-family: 'Righteous', cursive;
+    color: #212F78;
+}
+h4 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    color: #212F78;
+}
+h5 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    color: #212F78;
+}
+#timer-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    color: #212F78;
+}
+button {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}

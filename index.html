@@ -6,48 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MHA Trivia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Righteous" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-lg-12">
-            <h1>My Hero Trivia!</h1>
-        </div>
-        <div class="col-lg-12">
-            <h2 id="intro-text">So you think you know your stuff, huh? Then give your knowledge a test to see how much of a My Hero
-                Academia fan you truly are! Click the button below to get started!</h2>
-                <h3 id="spoiler-warning">WARNING! HEAVY SPOILERS AHEAD!</h3>
-                <button id="start-button">Go Beyond! Plus Ultra!</button>
-        </div>
+    <div clas="content">
+        <h1>My Hero Trivia!</h1>
+        <h2 id="intro-text">So you think you know your stuff, huh? Then give your knowledge a test to see how much of a My Hero
+            Academia fan you truly are! Click the button below to get started!</h2>
+        <h3 id="spoiler-warning">WARNING! HEAVY SPOILERS AHEAD!</h3>
+        <button id="start-button">Go Beyond! Plus Ultra!</button>
         <!-- Trivia Box -->
-        <div class="col-lg-12">
-            <div id="timer-text"></div>
+            <h4 id="timer-text"></h4>
             <h4><span id="question-header-text"></span></h4>
+            <h4><span id="quiz-over-text"></span></h4>
             <h5><span id="question-text"></span></h5>
-            <div class="col-sm-12">
-                <button><span class="choice" id="choiceA"></span></button>
-            </div>
-            <div class="col-sm-12">
+                <button class><span class="choice" id="choiceA"></span></button>
                 <button><span class="choice" id="choiceB"></span></button>
-            </div>
-            <div class="col-sm-12">
                 <button><span class="choice" id="choiceC"></span></button>
-            </div>
-            <div class="col-sm-12">
                 <button><span class="choice" id="choiceD"></span></button>
-            </div>
+            <h5><span id="rightwrong-text"></span></h5>
             <h5><span id="answer-text"></span></h5>
-            <h5><span id="correct-text"></span></h5>
-            <h5><span id="incorrect-text"></span></h5>
-        </div>
+            <button type="reset"><span id="try-again"></span></button>
     </div>
-    </div>
-
     <script src="assets/javascript/app.js"></script>
 </body>
 

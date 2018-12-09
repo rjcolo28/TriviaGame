@@ -40,7 +40,7 @@ var questions = [
     },
     {
         question: "How does Iida Tenya have super speed?",
-        choices: ["a. A pseudo-scientfic mix of chemicals and a lightning strike.", "b. He has engines on his calves.", "c. He's just really fast"],
+        choices: ["a. He was struck by lightning.", "b. He has engines in his calves.", "c. He's just really fast"],
         answer: "b. He has engines in his calves."
     },
     {
@@ -61,7 +61,7 @@ var questions = [
     {
         question: "True or False? Shoto Todoroki resents his father for neglecting him as a child.",
         choices: ["True", "False", "", ""],
-        answer: "False. Shoto resents his father for the physical abuse he and his mother were put through."
+        answer: "False"
     },
     {
         question: "Who is the first superhero we see in action in My Hero Academia?",
@@ -81,7 +81,7 @@ var questions = [
     {
         question: "True or False? One for All has been passed down through 8 generations.",
         choices: ["True", "False", "", ""],
-        answer: "False. One for All has gone through 9 generations."
+        answer: "False"
     },
     // {
     //     question: ,
@@ -96,7 +96,8 @@ var questions = [
 ];
 
 var number = 0;
-var timer = 20;
+var timer = 21;
+var countDown;
 // Functions
 $(document).ready(function() {
     // 1. Push start button to begin trivia
@@ -105,30 +106,96 @@ $(document).ready(function() {
         $(this).hide();
         $("#intro-text").hide();
         $("#spoiler-warning").hide();
+        var rightwrongText = $("#rightwrong-text");
+        var answerText = $("#answer-text")
+        var endText = $("#quiz-over-text")
+        var resetButton = $("#try-again")
+        $(endText).text("The quiz is over. Think you can do better? Try again and show us that you can truly go beyond!");
+        $(resetButton).text("AGAIN!");
+        $(endText).hide();
+        $(resetButton).hide();
+
         function display(i) {
+            if (number === questions.length) {
+                $("#question-header-text").hide();
+                $("#question-text").hide();
+                $(".choices").hide();
+                $(timer).hide();
+                $(endText).show();
+                $(resetButton).show();
+                $(resetButton).on("click", function() {
+                    number = 0;
+                    display(number);
+                    $("#question-header-text").show();
+                    $("#question-text").show();
+                    $(".choices").show();
+                    $("#quiz-over-text").hide();
+                    $("#try-again").hide();
+                });
+            }
+            else {
+            countDown = setInterval(start, 1000);
             $("#question-header-text").text(questionHeaders[i]);
             $("#question-text").text(questions[i].question);
             $("#choiceA").text(questions[i].choices[0]);
             $("#choiceB").text(questions[i].choices[1]);
             $("#choiceC").text(questions[i].choices[2]);
             $("#choiceD").text(questions[i].choices[3]);
-            var userGuess;
-            $(".choice").on("click", function click() {
-                userGuess = $(this).text();
-                if (userGuess === questions[i].answer) {
-                    number++;
-                    display(number);
-                    console.log("correct");
-                    // setTimeout(function() {display(number)}, 1000 * 5);
-                }
-                else if (userGuess != questions[i].answer) {
-                    number++;
-                    console.log("incorrect")
-                    // setTimeout(function() {display(number)}, 1000 * 5);
-                }
-            })
+                console.log(number);
+            
+            };
+        }
+        var userGuess;
+        function start() {
+            timer--;
+            $("#timer-text").text(timer);
+            if (timer === 0) {
+                clearInterval(countDown);
+                $(rightwrongText).text("TIME'S UP!");
+                $(rightwrongText).show();
+                $(answerText).text("Correct Answer: " + questions[number].answer);
+                $(answerText).show();
+                setTimeout(function() {
+                timer = 21;
+                number++;
+                display(number);
+                $(rightwrongText).hide();
+                $(answerText).hide();
+                }, 5000);
+            }
+        }
         
-        };
+        $(".choice").on("click", function click() {
+            userGuess = $(this).text();
+            if (userGuess === questions[number].answer) {
+                clearInterval(countDown);
+                $(rightwrongText).text("CORRECT!")
+                $(rightwrongText).show();
+                setTimeout(function() {
+                timer = 21;
+                number++;
+                display(number);
+                $(rightwrongText).hide();
+                $(answerText).hide();
+                }, 1000);
+                console.log("correct");
+            }
+            else {
+                clearInterval(countDown);
+                $(rightwrongText).text("INCORRECT!");
+                $(rightwrongText).show();
+                $(answerText).text("Correct Answer: " + questions[number].answer);
+                $(answerText).show();
+                setTimeout(function() {
+                timer = 21;
+                number++;
+                display(number);
+                $(rightwrongText).hide();
+                $(answerText).hide();
+                }, 1000);
+                console.log("incorrect");
+            }
+        });
         display(number);
     });
 });
