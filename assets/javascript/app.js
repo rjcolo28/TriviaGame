@@ -177,7 +177,7 @@ $(document).ready(function() {
                 display(number);
                 $(rightwrongText).hide();
                 $(answerText).hide();
-                }, 1000);
+                }, 3000);
                 console.log("correct");
             }
             else {
@@ -192,7 +192,7 @@ $(document).ready(function() {
                 display(number);
                 $(rightwrongText).hide();
                 $(answerText).hide();
-                }, 1000);
+                }, 3000);
                 console.log("incorrect");
             }
         });

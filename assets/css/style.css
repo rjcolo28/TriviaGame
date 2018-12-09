@@ -9,36 +9,61 @@ body {
 
 .content {
     background-color: #F3DA43;
+    position: relative;
+    width: 960px;
+    clear: both;
+    overflow: auto;
+    margin: 150px;
+    left: 100px;
+    min-height: 100%;
+    padding-bottom: 30px;
 }
 
 h1 {
     font-family:'Righteous', cursive;
-    color: #212F78;
+    color: #F2F2F2;
+    margin-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 660px;
+    background-color: #D92534;
 }
 h2 {
     font-family: 'Righteous', cursive;
     color: #212F78;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 h3 {
     font-family: 'Righteous', cursive;
     color: #212F78;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 h4 {
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
     color: #212F78;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 h5 {
     font-family: 'Oswald', sans-serif;
     font-size: 25px;
     color: #212F78;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 #timer-text {
     font-family: 'Oswald', sans-serif;
     font-size: 20px;
     color: #212F78;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 button {
     font-family: 'Oswald', sans-serif;
     font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
